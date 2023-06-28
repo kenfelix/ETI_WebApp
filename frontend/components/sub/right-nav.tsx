@@ -3,7 +3,7 @@
 
 import { FC } from 'react';
 import { Button } from '../ui/button';
-import { PhoneIcon, Smartphone } from 'lucide-react';
+import { Smartphone } from 'lucide-react';
 import MobileNavigation from './mobile-nav';
 import { useRouter } from 'next/navigation';
 

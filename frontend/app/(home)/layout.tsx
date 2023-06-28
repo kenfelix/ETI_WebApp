@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className} h-screen w-full`}>
+      <body className={`${font.className} h-screen w-screen`}>
         <div>
           <Header/>
           {children}

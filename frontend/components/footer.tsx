@@ -25,7 +25,7 @@ const Footer: FC<FooterProps> = () => {
                     elit. Iusto nesciunt consectetur architecto, sunt alias aliquam?
                     </p>
                 </div>
-                <Button onClick={() => {router.push("/donate")}} variant={'outline'} className='rounded-full px-[30px]
+                <Button onClick={() => {router.push("/donate")}} variant="outline" className='rounded-full px-[30px]
                 border-white border-[1.5px] text-white font-medium
                 hover:bg-orange-50 hover:text-orange-600'>
                 Patnership</Button>
