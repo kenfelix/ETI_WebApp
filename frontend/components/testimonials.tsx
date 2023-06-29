@@ -24,10 +24,10 @@ const Testimonials: FC<TestimonialsProps> = () => {
                 <div className='flex flex-col md:flex-row items-center justify-center gap-6 mt-11 w-full left-24'>
                     <Dialog>
                         <DialogTrigger>
-                            <Button variant="outline" className='border-[#FC7223] rounded-full border-[1.5px]
-                                px-[30px] hover:bg-[#fbdac7] text-[12px] font-sans font-bold'>
+                            <div className='border-[#FC7223] rounded-full border-[1.5px]
+                                px-[30px] py-[10px] hover:bg-[#fbdac7] text-[12px] font-sans font-bold'>
                                     All Testimonial
-                            </Button>
+                            </div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px] md:max-w-[800px] bottom-0 md:bottom-[50%]">
                         <ScrollArea className="h-72 w-48 rounded-md border">
