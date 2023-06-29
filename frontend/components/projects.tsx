@@ -18,7 +18,7 @@ const Project: FC<ProjectProps> = () => {
                     
                 </div>
                 <div  className='flex justify-center w-full items-center'>
-                    <LearnButton route={'/donate'} title="Show More Projects"/>
+                    <LearnButton route='/projects' title="Show More Projects"/>
                 </div>
             </div>
         </div>

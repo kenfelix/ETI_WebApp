@@ -30,7 +30,7 @@ const Testimonials: FC<TestimonialsProps> = () => {
                             </div>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px] md:max-w-[850px] bottom-0 md:top-[10%] md:bottom-[10%]">
-                        <ScrollArea className="p-2 md:p-4 h-[300px] md:h-full w-full rounded-md">
+                        <ScrollArea className="p-2 md:p-4 h-[400px] md:h-full w-full rounded-md">
                         <h4 className="mb-4 text-sm font-medium leading-none text-center md:text-left">Testimonials</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 {TESTIMONIALS.map((testimonial, index) => (

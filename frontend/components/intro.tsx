@@ -65,7 +65,7 @@ const Intoduction: FC<IntoductionProps> = () => {
                     <p className='text-[11px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Eveniet vero minima eos natus ipsa assumenda quod voluptate, 
                         amet ducimus consequatur.</p>
-                        <Button onClick={() => {router.push("/donate")}} variant={'outline'} className='rounded-full px-[30px]
+                        <Button onClick={() => {router.push("/about-us")}} variant={'outline'} className='rounded-full px-[30px]
                         border-black border-[1.5px] text-black font-medium text-[10px] lg:text-[15px]
                         hover:bg-orange-100 hover:border-orange-100 max-w-[50%] hover:opacity-100'>
                         Learn More</Button>
