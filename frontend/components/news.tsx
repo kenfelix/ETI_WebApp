@@ -18,8 +18,8 @@ const NewsUpdate: FC<NewsUpdateProps> = () => {
                     ))}
                     
                 </div>
-                <div  className='flex md:items-start w-[70%] md:w-[60%]'>
-                    <LearnButton route={'/blog'} title="More Updates"/>
+                <div  className='flex justify-center w-full items-center'>
+                    <LearnButton route={'/blog'} title="Show More News Updates"/>
                 </div>
             </div>
         </div>

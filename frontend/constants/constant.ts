@@ -171,18 +171,49 @@ export const TESTIMONIALS = [
         "id": 1,
         "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
         "name":  "Alex John",
-        "type": "Volunteer"
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
     },
     {
-        "id": 1,
+        "id": 2,
         "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
         "name":  "James Fisher",
-        "type": "Patner"
+        "type": "Patner",
+        "src": "https://github.com/shadcn.png"
     },
     {
-        "id": 1,
+        "id": 3,
         "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
         "name":  "Monday cameroon",
-        "type": "Volunteer"
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
+    },
+    {
+        "id": 4,
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
+        "name":  "Monday cameroon",
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
+    },
+    {
+        "id": 5,
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
+        "name":  "Monday cameroon",
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
+    },
+    {
+        "id": 6,
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
+        "name":  "Monday cameroon",
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
+    },
+    {
+        "id": 7,
+        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
+        "name":  "Monday cameroon",
+        "type": "Volunteer",
+        "src": "https://github.com/shadcn.png"
     }
 ]
