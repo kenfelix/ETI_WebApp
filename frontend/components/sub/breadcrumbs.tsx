@@ -1,13 +1,16 @@
+"use client"
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 import {ChevronRightIcon} from "lucide-react"
+import { getPathName } from '@/lib/utils';
 
 interface BreadCrumbsProps {
-    pathnames: string[]
 }
 
-const BreadCrumbs: FC<BreadCrumbsProps> = ({pathnames}) => {
+const BreadCrumbs: FC<BreadCrumbsProps> = () => {
+    let pathnames = getPathName()
     const path = usePathname()
     return (
         <div className='flex'>

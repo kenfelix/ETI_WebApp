@@ -18,13 +18,14 @@ def login(
     user_credentials: Annotated[OAuth2PasswordRequestForm, Depends()],
 ):
     userIndb = get_user_by_email(email=user_credentials.username)
-    user: userResponse = userResponse(**userIndb)
 
-    if not user:
+    if not userIndb:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Incorrect username or password",
         )
+    
+    user: userResponse = userResponse(**userIndb)
     if not verify(user_credentials.password, user.password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -39,13 +40,14 @@ def adminLogin(
     user_credentials: Annotated[OAuth2PasswordRequestForm, Depends()],
 ):
     userIndb = get_user_by_email(email=user_credentials.username)
-    user: userResponse = userResponse(**userIndb)
 
-    if not user:
+    if not userIndb:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Incorrect username or password",
         )
+    
+    user: userResponse = userResponse(**userIndb)
     if not verify(user_credentials.password, user.password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,

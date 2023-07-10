@@ -1,19 +1,13 @@
-"use client"
-
 import CallToAction from '@/components/call-to-action';
 import { FC } from 'react';
 import Image from "next/image"
 import people from "@/public/people.jpg"
 import BreadCrumbs from '@/components/sub/breadcrumbs';
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-import { getPathName } from '@/lib/utils';
+import DonationNow from '@/components/sub/donate-now';
 
 interface DonationPageProps {}
 
 const DonationPage: FC<DonationPageProps> = () => {
-    const router = useRouter()
-    let pathnames = getPathName()
     
     return (
         <div className='flex flex-col gap-[80px]'>
@@ -27,11 +21,8 @@ const DonationPage: FC<DonationPageProps> = () => {
                 justify-center items-center'>
                     <h3 className='font-extrabold shadow-sm text-[50px] leading-[50px] lg:text-[70px]
                      lg:leading-[70px] font-sans'>DONATE NOW</h3>
-                    <BreadCrumbs pathnames={pathnames}/>
-                    <Button onClick={() => {router.push("/donate")}} className='rounded-full px-[20px] py-[25px]
-                    bg-orange-500 text-white font-medium max-w-[170px]
-                    hover:bg-orange-50 hover:text-orange-600'>
-                        Donation Now</Button>
+                    <BreadCrumbs/>
+                    <DonationNow/>
                 </div>
             </div>
             <CallToAction/>

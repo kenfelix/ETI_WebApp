@@ -1,20 +1,14 @@
-"use client"
-
 import ProjectCard from '@/components/sub/project-card';
 import { PROJECTS } from '@/constants/constant';
 import { FC } from 'react';
 import Image from  "next/image" 
 import BreadCrumbs from '@/components/sub/breadcrumbs';
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 import people from "@/public/people.jpg"
-import { getPathName } from '@/lib/utils';
+import DonationNow from '@/components/sub/donate-now';
 
 interface ProjectPageProps {}
 
 const ProjectPage: FC<ProjectPageProps> = () => {
-    const router = useRouter()
-    let pathnames = getPathName()
     return (
         <div className='flex flex-col justify-center gap-[20px] items-center mb-[100px]'>
             <div className="relative w-full h-[500px]">
@@ -25,11 +19,8 @@ const ProjectPage: FC<ProjectPageProps> = () => {
                 />
                 <div className='flex flex-col gap-[50px] text-white absolute top-0 left-0 h-full w-full justify-center items-center'>
                     <h3 className='font-extrabold shadow-sm text-[50px] leading-[50px] lg:text-[70px] lg:leading-[70px] font-sans'>PROJECTS</h3>
-                    <BreadCrumbs pathnames={pathnames}/>
-                    <Button onClick={() => {router.push("/donate")}} className='rounded-full px-[20px] py-[25px]
-                    bg-orange-500 text-white font-medium max-w-[170px]
-                    hover:bg-orange-50 hover:text-orange-600'>
-                        Donation Now</Button>
+                    <BreadCrumbs/>
+                    <DonationNow/>
                 </div>
             </div>
             <div>

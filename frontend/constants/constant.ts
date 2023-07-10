@@ -82,23 +82,26 @@ export const nonProfits = [
 export const NEWS = [
     {
         "id": 1,
+        "slug": "lorem1",
         "title": "Lorem ipsum, dolor sit amet consectetur adipisicing.",
         "category": "category",
-        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid est rerum animi praesentium amet sequi, repellendus distinctio quis reprehenderit cum maxime magni commodi odio illo, explicabo quia laborum officia dicta mollitia dolorem a quaerat pariatur? Corrupti veniam laudantium nam dolore consequuntur, quas nostrum quod sunt rerum ex explicabo minus praesentium voluptatum consequatur officia eligendi libero saepe nulla distinctio voluptatem modi earum adipisci enim pariatur. Natus, omnis enim. Tempore sed fugit illo quaerat nulla sequi vitae eius commodi ullam suscipit in facilis, et iure, ut molestiae! Consequuntur quos doloribus ullam voluptate, dicta consectetur natus incidunt aut dolorem ipsa rem aliquam? Recusandae nam asperiores laborum culpa aperiam! Sed delectus quo magnam sapiente fugit ipsam voluptates similique molestiae, nostrum vitae praesentium quis odio sint assumenda amet iste totam reprehenderit temporibus quaerat optio consequatur asperiores! Quae illo officiis perferendis deleniti odit velit corrupti illum voluptates similique ex porro ipsa esse, assumenda architecto totam facilis minus dolor repellendus asperiores saepe nemo, nobis sunt! Molestias excepturi repellat dolorum nisi sint harum rem cumque necessitatibus. Dolore pariatur, doloribus quos autem dolores blanditiis ab obcaecati tempora, mollitia assumenda fugiat molestias cumque ducimus incidunt nulla et dicta repellat a, officia eligendi dignissimos laudantium. Voluptates voluptas quisquam debitis quia laborum.",
         "image": blogImage
     },
     {
         "id": 2,
+        "slug": "lorem2",
         "title": "Lorem ipsum, dolor sit amet consectetur adipisicing.",
         "category": "category",
-        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid est rerum animi praesentium amet sequi, repellendus distinctio quis reprehenderit cum maxime magni commodi odio illo, explicabo quia laborum officia dicta mollitia dolorem a quaerat pariatur? Corrupti veniam laudantium nam dolore consequuntur, quas nostrum quod sunt rerum ex explicabo minus praesentium voluptatum consequatur officia eligendi libero saepe nulla distinctio voluptatem modi earum adipisci enim pariatur. Natus, omnis enim. Tempore sed fugit illo quaerat nulla sequi vitae eius commodi ullam suscipit in facilis, et iure, ut molestiae! Consequuntur quos doloribus ullam voluptate, dicta consectetur natus incidunt aut dolorem ipsa rem aliquam? Recusandae nam asperiores laborum culpa aperiam! Sed delectus quo magnam sapiente fugit ipsam voluptates similique molestiae, nostrum vitae praesentium quis odio sint assumenda amet iste totam reprehenderit temporibus quaerat optio consequatur asperiores! Quae illo officiis perferendis deleniti odit velit corrupti illum voluptates similique ex porro ipsa esse, assumenda architecto totam facilis minus dolor repellendus asperiores saepe nemo, nobis sunt! Molestias excepturi repellat dolorum nisi sint harum rem cumque necessitatibus. Dolore pariatur, doloribus quos autem dolores blanditiis ab obcaecati tempora, mollitia assumenda fugiat molestias cumque ducimus incidunt nulla et dicta repellat a, officia eligendi dignissimos laudantium. Voluptates voluptas quisquam debitis quia laborum.",
         "image": blogImage
     },
     {
         "id": 3,
+        "slug": "lorem3",
         "title": "Lorem ipsum, dolor sit amet consectetur adipisicing.",
         "category": "category",
-        "content": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid est rerum animi praesentium amet sequi, repellendus distinctio quis reprehenderit cum maxime magni commodi odio illo, explicabo quia laborum officia dicta mollitia dolorem a quaerat pariatur? Corrupti veniam laudantium nam dolore consequuntur, quas nostrum quod sunt rerum ex explicabo minus praesentium voluptatum consequatur officia eligendi libero saepe nulla distinctio voluptatem modi earum adipisci enim pariatur. Natus, omnis enim. Tempore sed fugit illo quaerat nulla sequi vitae eius commodi ullam suscipit in facilis, et iure, ut molestiae! Consequuntur quos doloribus ullam voluptate, dicta consectetur natus incidunt aut dolorem ipsa rem aliquam? Recusandae nam asperiores laborum culpa aperiam! Sed delectus quo magnam sapiente fugit ipsam voluptates similique molestiae, nostrum vitae praesentium quis odio sint assumenda amet iste totam reprehenderit temporibus quaerat optio consequatur asperiores! Quae illo officiis perferendis deleniti odit velit corrupti illum voluptates similique ex porro ipsa esse, assumenda architecto totam facilis minus dolor repellendus asperiores saepe nemo, nobis sunt! Molestias excepturi repellat dolorum nisi sint harum rem cumque necessitatibus. Dolore pariatur, doloribus quos autem dolores blanditiis ab obcaecati tempora, mollitia assumenda fugiat molestias cumque ducimus incidunt nulla et dicta repellat a, officia eligendi dignissimos laudantium. Voluptates voluptas quisquam debitis quia laborum.",
         "image": blogImage
     }
 ]

@@ -9,14 +9,15 @@ from app.schemas.response import User as userResponse
 from app.utils.oauth2 import create_access_token
 from app.utils.enums import Privilege
 from app.utils.dependecies import get_current_user
+from app.serializers.serializer import serializeDictList
 
 blog = APIRouter(tags=["Blog"])
 
 @blog.post("/", status_code=status.HTTP_201_CREATED, response_model=postResponse)
 async def createPost(post: postRequest, current_user: Annotated[userResponse, Depends(get_current_user)]):
-    if not current_user.confirmed:
+    if not current_user.get("confirmed"):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Unverified Email Address.")
-    if current_user.privilege < Privilege.STAFF.value:
+    if current_user.get("privilege") < Privilege.STAFF.value:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access Denied!")
     new_post_Indb = create_post(post=post)
     return new_post_Indb
@@ -29,5 +30,8 @@ async def getPost(slug: str):
 
 @blog.get("/", status_code=status.HTTP_200_OK, response_model=List[postResponse])
 async def getPosts(skip: int, limit: int):
-    new_post_Indb = get_posts(skip=skip, limit=limit)
-    return new_post_Indb
+    posts_Indb = get_posts(skip=skip, limit=limit)
+    postList = serializeDictList(
+        posts_Indb
+    )
+    return postList

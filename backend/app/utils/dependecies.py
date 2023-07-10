@@ -5,7 +5,7 @@ from ..crud.crud import get_user_by_email
 from .oauth2 import verify_create_access_token
 from typing import Annotated
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/user/login")
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):

@@ -1,19 +1,13 @@
-"use client"
-
 import CallToAction from "@/components/call-to-action";
 import { FC } from "react";
 import Image from "next/image"
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 import people from "@/public/people.jpg"
-import { getPathName } from "@/lib/utils";
 import BreadCrumbs from "@/components/sub/breadcrumbs";
+import DonationNow from "@/components/sub/donate-now";
 
 interface AboutUsPageProps {}
 
 const AboutUsPage: FC<AboutUsPageProps> = () => {
-    const router = useRouter()
-    let pathnames = getPathName()
     return(
         <div className='flex flex-col gap-[60px] w-full'>
             <div className="relative w-full h-[500px]">
@@ -24,11 +18,8 @@ const AboutUsPage: FC<AboutUsPageProps> = () => {
                 />
                 <div className='flex flex-col gap-[50px] text-white absolute top-0 left-0 h-full w-full justify-center items-center'>
                     <h3 className='font-extrabold shadow-sm text-[50px] leading-[50px] lg:text-[70px] lg:leading-[70px] font-sans'>ABOUT US</h3>
-                    <BreadCrumbs pathnames={pathnames}/>
-                    <Button onClick={() => {router.push("/donate")}} className='rounded-full px-[20px] py-[25px]
-                    bg-orange-500 text-white font-medium max-w-[170px]
-                    hover:bg-orange-50 hover:text-orange-600'>
-                        Donation Now</Button>
+                    <BreadCrumbs/>
+                    <DonationNow/>
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center gap-4 px-3">
