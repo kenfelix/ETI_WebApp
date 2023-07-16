@@ -18,9 +18,11 @@ const Form: FC<FormProps> = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [submit, setSubmit] = useState(false)
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+        setSubmit(true)
         try {
                 const body = JSON.stringify({"username": email, "password": password});
                 const response = await axios.post('http://localhost:3000/api/login', body, {
@@ -36,10 +38,12 @@ const Form: FC<FormProps> = () => {
                 } else {
                 // Login failed
                 setError(response.statusText)
+                setSubmit(false)
                 }
             } catch (error: any) {
                 console.log(error)
                 setError(error.response.statusText)
+                setSubmit(false)
             }
     }
 
@@ -69,7 +73,7 @@ const Form: FC<FormProps> = () => {
             </div>
             {error && <Alert>{error}</Alert>}
             <div className="w-full">
-                <Button className="w-full" size="lg">
+                <Button disabled={submit} className="w-full" size="lg">
                     Login
                 </Button>
             </div>

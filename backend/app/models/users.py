@@ -1,8 +1,11 @@
 from datetime import datetime
-from typing import Optional
-from ..utils.utils import slugify
+from typing import Any, Optional
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
+
+from app.schemas.response import PyObjectId
+
+from ..utils.utils import slugify
 
 
 class User(BaseModel):
@@ -27,8 +30,8 @@ class Post(BaseModel):
     title: str
     slug: Optional[str] = None
     category: str
-    content: str
-    image: str
+    content: Any
+    imageURL: str
     published: bool = False
     created_at: Optional[datetime]
     timestamp: Optional[datetime]
@@ -39,5 +42,22 @@ class Post(BaseModel):
             self.slug = slugify(self.title)
         if self.created_at is None:
             self.created_at = datetime.utcnow()
+        if self.timestamp is None:
+            self.timestamp = datetime.timestamp(datetime.utcnow())
+
+
+class UpdatePost(BaseModel):
+    title: str
+    slug: Optional[str] = None
+    category: str
+    content: Any
+    imageURL: str
+    published: bool = False
+    timestamp: Optional[datetime]
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.slug is None:
+            self.slug = slugify(self.title)
         if self.timestamp is None:
             self.timestamp = datetime.timestamp(datetime.utcnow())

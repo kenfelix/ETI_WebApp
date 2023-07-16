@@ -1,9 +1,10 @@
+from typing import Annotated
+
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
 from ..crud.crud import get_user_by_email
 from .oauth2 import verify_create_access_token
-from typing import Annotated
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/user/login")
 

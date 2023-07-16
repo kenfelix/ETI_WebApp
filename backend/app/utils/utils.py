@@ -1,5 +1,6 @@
-from passlib.context import CryptContext
 import uuid
+
+from passlib.context import CryptContext
 
 pswrd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -10,6 +11,7 @@ def hashpassword(password: str):
 
 def verify(plain_password, hashed_password):
     return pswrd_context.verify(plain_password, hashed_password)
+
 
 def slugify(title: str):
     slug = title.replace(" ", "-")

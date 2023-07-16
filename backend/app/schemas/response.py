@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Any, Optional
 
 from bson import ObjectId
 from pydantic import BaseModel, EmailStr, Field
@@ -49,8 +49,8 @@ class Post(BaseModel):
     title: str
     slug: str
     category: str
-    content: str
-    image: str
+    content: Any
+    imageURL: str
     published: bool
     created_at: Optional[datetime]
     timestamp: Optional[datetime]
@@ -59,3 +59,11 @@ class Post(BaseModel):
         allow_population_by_field_name = True
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
+
+
+class Deleted(BaseModel):
+    deleted: bool
+
+
+class ImageURL(BaseModel):
+    imageURL: str

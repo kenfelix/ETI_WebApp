@@ -1,4 +1,38 @@
 import blogImage from '../public/blogpicture.jpg'
+import {LayoutDashboardIcon, UserCircle2Icon, MailsIcon, FolderKeyIcon, WallpaperIcon} from "lucide-react"
+
+export const AdminPages = [
+    {
+        "id": 1,
+        "title": "Dashboard",
+        "link": "/admin/dashboard",
+        "icon": LayoutDashboardIcon
+    },
+    {
+        "id": 2,
+        "title": "Users",
+        "link": "/admin/dashboard/user",
+        "icon": UserCircle2Icon
+    },
+    {
+        "id": 3,
+        "title": "Posts",
+        "link": "/admin/dashboard/posts",
+        "icon": MailsIcon
+    },
+    {
+        "id": 4,
+        "title": "Projects",
+        "link": "/admin/dashboard/projects",
+        "icon": FolderKeyIcon
+    },
+    {
+        "id": 5,
+        "title": "Donations",
+        "link": "/admin/dashboard/donations",
+        "icon": WallpaperIcon
+    }
+]
 
 export const Pages = [
     {

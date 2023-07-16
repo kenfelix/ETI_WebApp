@@ -1,11 +1,10 @@
 import { API_URL } from '@/config';
 import axios from 'axios';
-import { NextApiRequest, NextApiResponse } from 'next';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 
-const MAX_AGE = 60 * 60 * 24;
+const MAX_AGE = 60 * 60;
  
 export async function POST(req: Request, res:Response) {
     
@@ -14,7 +13,7 @@ export async function POST(req: Request, res:Response) {
     const body = new URLSearchParams({"username": requestBody.username, "password": requestBody.password}).toString();
 
     try {
-        const response = await axios.post(`${API_URL}/user/login/`, body, {
+        const response = await axios.post(`${API_URL}/user/admin/`, body, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -37,15 +36,14 @@ export async function POST(req: Request, res:Response) {
                 statusText: "Log in successful"
                 })
         } else {
-            console.log(response.status)
             return NextResponse.json('', {
-                status: 400,
+                status: response.status,
                 statusText: response.statusText
                 })
         }
     } catch (error: any) {
         return NextResponse.json('', {
-            status: 400,
+            status: error.response.status,
             statusText: error.response.data.detail
             })
     }
