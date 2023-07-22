@@ -1,5 +1,12 @@
 import blogImage from '../public/blogpicture.jpg'
-import {LayoutDashboardIcon, UserCircle2Icon, MailsIcon, FolderKeyIcon, WallpaperIcon} from "lucide-react"
+import {
+    LayoutDashboardIcon,
+    UserCircle2Icon,
+    MailsIcon,
+    FolderKeyIcon,
+    WallpaperIcon,
+    InfoIcon
+} from "lucide-react"
 
 export const AdminPages = [
     {
@@ -7,6 +14,12 @@ export const AdminPages = [
         "title": "Dashboard",
         "link": "/admin/dashboard",
         "icon": LayoutDashboardIcon
+    },
+    {
+        "id": 5,
+        "title": "About Page",
+        "link": "/admin/dashboard/about",
+        "icon": InfoIcon
     },
     {
         "id": 2,
@@ -81,7 +94,7 @@ export const footerLinks = [
     {
         "id": 3,
         "title": "Conatact us",
-        "link": "/about-us"
+        "link": "#"
     },
     {
         "id": 4,
@@ -94,22 +107,22 @@ export const nonProfits = [
     {
         "id": 1,
         "title": "Nonprofit Resources",
-        "link": "/"
-    },
-    {
-        "id": 5,
-        "title": "Donation Online",
-        "link": "/blog"
+        "link": "#"
     },
     {
         "id": 2,
-        "title": "Donation Details",
-        "link": "/about-us"
+        "title": "Donation Online",
+        "link": "#"
     },
     {
         "id": 3,
         "title": "Patnership",
-        "link": "/about-us"
+        "link": "#"
+    },
+    {
+        "id": 3,
+        "title": "Leadership",
+        "link": "/about-us/leadership"
     },
 ]
 
@@ -254,3 +267,30 @@ export const TESTIMONIALS = [
         "src": "https://github.com/shadcn.png"
     }
 ]
+
+export const currencies = [
+    { code: 'USD', symbol: '$', name: 'United States Dollar' },
+    { code: 'EUR', symbol: '€', name: 'Euro' },
+    { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
+    { code: 'GBP', symbol: '£', name: 'British Pound Sterling' },
+    { code: 'AUD', symbol: 'A$', name: 'Australian Dollar' },
+    { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar' },
+    { code: 'CHF', symbol: 'CHF', name: 'Swiss Franc' },
+    { code: 'CNY', symbol: '¥', name: 'Chinese Yuan' },
+    { code: 'SEK', symbol: 'kr', name: 'Swedish Krona' },
+    { code: 'NZD', symbol: 'NZ$', name: 'New Zealand Dollar' },
+    { code: 'KRW', symbol: '₩', name: 'South Korean Won' },
+    { code: 'SGD', symbol: 'S$', name: 'Singapore Dollar' },
+    { code: 'NOK', symbol: 'kr', name: 'Norwegian Krone' },
+    { code: 'MXN', symbol: 'Mex$', name: 'Mexican Peso' },
+    { code: 'INR', symbol: '₹', name: 'Indian Rupee' },
+    { code: 'BRL', symbol: 'R$', name: 'Brazilian Real' },
+    { code: 'RUB', symbol: '₽', name: 'Russian Ruble' },
+    { code: 'ZAR', symbol: 'R', name: 'South African Rand' },
+    { code: 'TRY', symbol: '₺', name: 'Turkish Lira' },
+    { code: 'HKD', symbol: 'HK$', name: 'Hong Kong Dollar' },
+    { code: 'NGN', symbol: '₦', name: 'Nigerian Naira' }, // Nigeria
+    // Add more currencies as needed
+  ];
+
+export const donationPrices = [10, 25, 50, 60, 75, 100]

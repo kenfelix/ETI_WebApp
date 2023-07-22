@@ -39,35 +39,19 @@ import {
 
 import { FC } from 'react';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog"
-import { deletePost, getCurrentUser} from "@/utils/actions"
+import { deleteProject, getCurrentUser} from "@/utils/actions"
 import { useRouter } from "next/navigation"
 import { useToast } from "../ui/use-toast"
-
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { useForm } from 'react-hook-form';
-import AddPost from "./add-post"
-import { Post } from "@/utils/getData"
+import { Project } from "@/utils/getData"
+import AddProject from "./add-project"
 
 
-interface PostDataTableProps {
-    data: Post[]
+interface ProjectDataTableProps {
+    data: Project[]
 }
 
-const FormSchema = z.object({
-  password: z.string().min(8, {
-      message: "Password must be at least 8 characters.",
-  }),
-  confirmPassword: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
-}),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Password doesn't match",
-  path: ["confirmpassword"]
-});
 
-
-export const columns: ColumnDef<Post>[] = [
+export const columns: ColumnDef<Project>[] = [
     
     {
       id: "select",
@@ -137,19 +121,39 @@ export const columns: ColumnDef<Post>[] = [
       },
     {
       accessorKey: "category",
-      header: () => <div className="flex flex-row-reverse">Category</div>,
+      header: () => <div className="flex flex-row">Category</div>,
       cell: ({ row }) => {
         const category: boolean = row.getValue("category")
-        return <div className="flex flex-row-reverse">
+        return <div className="flex flex-row">
             {category}
         </div>
       },
     },
     {
+        accessorKey: "goal",
+        header: () => <div className="flex flex-row items-center">Goal</div>,
+        cell: ({ row }) => {
+          const goal: boolean = row.getValue("goal")
+          return <div className="flex flex-row items-center">
+              {goal}
+          </div>
+        },
+    },
+    {
+        accessorKey: "raised",
+        header: () => <div className="flex flex-row-reverse">Raised</div>,
+        cell: ({ row }) => {
+          const raised: boolean = row.getValue("raised")
+          return <div className="flex flex-row-reverse">
+              {raised}
+          </div>
+        },
+    },
+    {
       id: "actions",
       enableHiding: false,
       cell: ({ row }) => {
-        const post = row.original
+        const project = row.original
         const router = useRouter()
         const [disable, setDisable] = React.useState(false)
         const { toast } = useToast()
@@ -160,12 +164,6 @@ export const columns: ColumnDef<Post>[] = [
             setDisable(true)
           }
         }
-        const form = useForm<z.infer<typeof FormSchema>>({
-          resolver: zodResolver(FormSchema),
-          defaultValues: {
-          password: "",
-          confirmPassword: "",}
-      })
         return (
         <AlertDialog>
           <DropdownMenu>
@@ -178,13 +176,13 @@ export const columns: ColumnDef<Post>[] = [
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(post._id)}
+                onClick={() => navigator.clipboard.writeText(project._id)}
               >
                 Copy post ID
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                        <AddPost title={"edit"} id={post._id}/>
+                        <AddProject title={"edit"} id={project._id}/>
                     </DropdownMenuItem>
                 <DropdownMenuItem className="text-red-600">
                     <AlertDialogTrigger className="w-full" disabled={disable}>
@@ -206,7 +204,7 @@ export const columns: ColumnDef<Post>[] = [
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
                     <AlertDialogAction 
                     onClick={async() => {
-                      deletePost(post._id)
+                      deleteProject(project._id)
                       await new Promise((resolve) => setTimeout(resolve, 1000)); 
                       await new Promise(resolve => {
                         router.refresh();
@@ -226,7 +224,7 @@ export const columns: ColumnDef<Post>[] = [
     },
 ]
 
-const PostDataTable: FC<PostDataTableProps> = ({data}) =>  {
+const ProjectDataTable: FC<ProjectDataTableProps> = ({data}) =>  {
     const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -376,4 +374,4 @@ const PostDataTable: FC<PostDataTableProps> = ({data}) =>  {
     );
 };
 
-export default PostDataTable;
+export default ProjectDataTable;

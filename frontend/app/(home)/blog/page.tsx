@@ -1,5 +1,5 @@
 import ArticleCard from '@/components/sub/article';
-import {getBlogPosts} from "@/utils/getData"
+import {Post, getPosts} from "@/utils/getData"
 import Image from  "next/image" 
 import BreadCrumbs from '@/components/sub/breadcrumbs';
 import people from "@/public/people.jpg"
@@ -9,7 +9,8 @@ interface BlogPageProps {}
 
 
 const BlogPage: ({}: BlogPageProps) => Promise<JSX.Element> = async () => {
-    const data = await getBlogPosts()
+    const posts: Post[] = await getPosts()
+    const publishedPosts = posts.filter((post) => post.published === true)
     return (
         <div className='flex flex-col justify-center gap-[20px] items-center mb-[100px]'>
             <div className="relative w-full h-[500px]">
@@ -28,7 +29,7 @@ const BlogPage: ({}: BlogPageProps) => Promise<JSX.Element> = async () => {
                 <h5 className='text-[#FC7223] text-[30px] font-semibold mt-[50px]'>NEWS UPDATE</h5>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                {data.map((news, index) => (
+                {publishedPosts.map((news, index) => (
                     <ArticleCard key={index} news={news} />
                 ))}
             </div>

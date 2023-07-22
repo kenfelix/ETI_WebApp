@@ -7,7 +7,7 @@ from PIL import Image
 
 from ..config.config import get_db
 from ..models.users import *
-from ..schemas.request import Post as requestPost
+from ..schemas.request import Post as requestPost, PostCategory
 from ..schemas.request import PostUpdate
 from ..schemas.request import User as requestUser
 from ..schemas.response import ImageURL, PyObjectId
@@ -52,44 +52,7 @@ def update_user_password(id: PyObjectId, password: str):
     return new_user_Indb
 
 
-def create_post(post: requestPost):
-    new_post: Post = Post(**post.dict())
-    post_id = db.post.insert_one(dict(new_post))
-    new_post_Indb = db.post.find_one({"_id": post_id.inserted_id})
-    return new_post_Indb
 
-
-def update_post(id: PyObjectId, post: PostUpdate):
-    updatePost = dict(post)
-    updatePost = {k: v for k, v in updatePost.items() if v is not None}
-    if 'title' in updatePost:
-        updatePost['slug'] = slugify(updatePost['title'])
-    result = db.post.find_one_and_update(
-        {"_id": id},
-        {"$set": updatePost},
-        upsert=True,
-        return_document=pymongo.ReturnDocument.AFTER,
-    )
-    return result
-
-
-def get_post_by_slug(slug: str):
-    return db.post.find_one({"slug": slug})
-
-
-def get_post_by_id(id: str):
-    return db.post.find_one({"_id": id})
-
-
-def get_posts(skip: Optional[int], limit: Optional[int]):
-    if skip is None and limit is None:
-        return db.post.find()
-    else:
-        return db.post.find().limit(limit).skip(skip)
-
-
-def delete_post(id: PyObjectId):
-    return db.post.delete_one({"_id": id})
 
 
 def upload_image(
@@ -107,10 +70,7 @@ def upload_image(
 
     picture_path = os.path.join(path, picture_name)
 
-    output_size = (125, 125)
     img = Image.open(image.file)
-
-    img.thumbnail(output_size)
     img.save(picture_path)
     imageURL: ImageURL = ImageURL(imageURL=f'{"static"}/{folderName}/{picture_name}')
     db.images.insert_one(imageURL.dict())

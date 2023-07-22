@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from app.routes import dynamic, user
+from app.routes import post, user, project, dynamic
 
 app = FastAPI()
 
@@ -20,7 +20,9 @@ app.add_middleware(
 )
 
 app.include_router(user.auth, prefix="/user")
-app.include_router(dynamic.blog, prefix="/blog")
+app.include_router(post.blog, prefix="/blog")
+app.include_router(project.project, prefix="/project")
+app.include_router(dynamic.dynamic, prefix="/dynamic")
 
 
 if __name__ == "__main__":

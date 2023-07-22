@@ -61,6 +61,36 @@ class Post(BaseModel):
         json_encoders = {ObjectId: str}
 
 
+class PostCategoryResponse(BaseModel):
+    label: str
+    value: str
+
+
+class Project(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    title: str
+    slug: str
+    category: str
+    content: Any
+    imageURL: str
+    raised: int
+    goal: int
+    currency: str
+    published: bool
+    created_at: Optional[datetime]
+    timestamp: Optional[datetime]
+
+    class Config:
+        allow_population_by_field_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+
+
+class ProjectCategoryResponse(BaseModel):
+    label: str
+    value: str
+
+
 class Deleted(BaseModel):
     deleted: bool
 

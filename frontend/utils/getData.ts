@@ -1,12 +1,9 @@
 import "server-only"
 
-import { NEWS } from '@/constants/constant';
-// import axios from 'axios';
 import { cookies } from 'next/headers';
 import axios from "axios";
 import { API_URL } from "@/config";
 import { User } from "lucide-react";
-// import { NextRequest } from 'next/server';
 
 interface User {
     _id: string
@@ -25,8 +22,18 @@ export type Post = {
   published: boolean
 }
 
-export const getBlogPosts = async () => {
-    return NEWS
+
+export type Project = {
+  _id: string
+  title: string
+  slug: string
+  category: string
+  content: any
+  imageURL: string
+  raised: number
+  goal: number
+  currency: string
+  published: boolean
 }
 
 export const getUsers = async () => {
@@ -77,7 +84,32 @@ export const getPosts = async () => {
 }
 
 
-export const getBlogPost = async (slug: string) => {
-    return NEWS.find((news) => news.slug === slug)
+export const getProjects = async () => {
+  let cookie = cookies().get("access_token")
+  
+  const res = await axios.get(`${API_URL}/project/`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${cookie?.value}`
+    },
+  })
+  
+  if (res.status === 200) {
+      const project: Project[] = res.data
+      return project
+  } else {
+      return []
+  }
+}
+
+
+export const getPageContent = async(page: string) => {
+  const response = await axios.get(`${API_URL}/dynamic/${page}`, {
+      headers: {
+          'Accept': 'application/json'
+      },
+      });
+
+  return response.data
 }
 

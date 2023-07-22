@@ -21,32 +21,37 @@ import { Editor } from "react-draft-wysiwyg";
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from "@/components/ui/button";
-import { createPostCategory, getImages, getPostByID, updatePost, uploadPostImage } from "@/utils/actions";
+import { createProjectCategory, getImages, getProjectByID, updateProject, uploadProjectImage } from "@/utils/actions";
 import { useParams, useRouter } from "next/navigation";
 import { ChevronsUpDown } from "lucide-react"
 import { toTitleCase } from "@/lib/utils"
-import { getPostCategories } from "@/utils/actions"
+import { getProjectCategories } from "@/utils/actions"
 import Image from "next/image"
+import { currencies } from "@/constants/constant";
 
 
-interface AdminEditPostProps {}
+interface AdminEditProjectProps {}
 
-export type Category = {
+type Category = {
     label: string
     value : string
 }
 
-export type ImageURL = {
+type ImageURL = {
     _id: string
     imageURL : string
 }
 
-const AdminEditPost: FC<AdminEditPostProps> = () => {
+const AdminEditProject: FC<AdminEditProjectProps> = () => {
     const [open, setOpen] = useState(false)
     const [dOpen, setDOpen] = useState(false)
     const [iOpen, setIOpen] = useState(false)
+    const [fOpen, setFOpen] = useState(false)
     const [editorState, setEditorState] = useState(EditorState.createEmpty())
     const [title, setTitle] = useState("")
+    const [goal, setGoal] = useState(0)
+    const [raised, setRaised] = useState(0)
+    const [currency, setCurrency] = useState("")
     const [category, setCategory] = useState("")
     const [newCategory, setNewCategory] = useState("")
     const [published, setPublished] = useState<boolean>()
@@ -61,19 +66,22 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
     
     useEffect(
         () => {
-            getPostByID(id).then(
-                (post) => {
-                    setTitle(post?.title || "")
-                    setCategory(post?.category || "")
-                    setPublished(post?.published)
-                    setImageURL(post?.imageURL || "")
-                    setEditorState(EditorState.createWithContent(convertFromRaw(post?.content)))
+            getProjectByID(id).then(
+                (project) => {
+                    setTitle(project?.title || "")
+                    setCategory(project?.category || "")
+                    setGoal(project?.goal || 0)
+                    setRaised(project?.raised || 0)
+                    setCurrency(project?.currency || "")
+                    setPublished(project?.published)
+                    setImageURL(project?.imageURL || "")
+                    setEditorState(EditorState.createWithContent(convertFromRaw(project?.content)))
                 }
             ).catch(
                 (error) => {}
             )
 
-            getPostCategories().then(
+            getProjectCategories().then(
                 (categ) => {
                     setcategories(categ)
                 }
@@ -90,7 +98,7 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
     const onEditorStateChange = (editorState: EditorState) => {
         setEditorState(editorState)
 
-        updatePost(
+        updateProject(
             {
                 "content": convertToRaw(editorState.getCurrentContent())
             },
@@ -107,6 +115,19 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
     }, [category]);
 
     useEffect(() => {
+        onGoalStateChange(goal);
+    }, [goal]);
+
+    useEffect(() => {
+        onRaisedStateChange(raised);
+    }, [raised]);
+
+    useEffect(() => {
+        onCurrencyStateChange(currency);
+    }, [,currency]);
+
+
+    useEffect(() => {
     onImageURLStateChange(imageURL);
     }, [imageURL]);
 
@@ -120,7 +141,7 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
     }, [image]);
     
       const onTitleStateChange = async (title: string) => {
-        updatePost(
+        updateProject(
             {
                 title
             },
@@ -130,7 +151,7 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
 
       const onCategoryStateChange = async (category: string) => {
         if (category !== "") {
-            updatePost(
+            updateProject(
                 {
                     category
                 },
@@ -139,9 +160,42 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
         }        
       };
 
+      const onGoalStateChange = async (goal: number) => {
+        if (goal !== 0) {
+            updateProject(
+                {
+                    goal
+                },
+                id
+            )
+        }        
+      };
+
+      const onRaisedStateChange = async (raised: number) => {
+        if (raised !== 0) {
+            updateProject(
+                {
+                    raised
+                },
+                id
+            )
+        }        
+      };
+
+      const onCurrencyStateChange = async (currency: string) => {
+        if (currency !== "") {
+            updateProject(
+                {
+                    currency
+                },
+                id
+            )
+        }        
+      };
+
       const onImageURLStateChange = async (imageURL: string) => {
         if (imageURL !== "") {
-            updatePost(
+            updateProject(
                 {
                     imageURL
                 },
@@ -153,7 +207,7 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
 
 
       const onPublishStateChange = async (published: boolean) => {
-        updatePost(
+        updateProject(
             {
                 published
             },
@@ -167,9 +221,8 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
         if ((typeof image) !== null) {
             const f = new FormData()
             f.append("image", image)
-            const URL = await uploadPostImage(f)
+            const URL = await uploadProjectImage(f)
             if (URL !== null) {
-                console.log('State changed:', URL);
                 setImageURL(URL)
             }
         }
@@ -303,7 +356,7 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
                                     />
                                 </div>
                                 <Button onClick={
-                                    () => {createPostCategory(
+                                    () => {createProjectCategory(
                                         {
                                             "label": toTitleCase(newCategory),
                                             "value": newCategory.toLowerCase()
@@ -317,11 +370,67 @@ const AdminEditPost: FC<AdminEditPostProps> = () => {
                             </DialogContent>
                         </Dialog>
                     </div>
+                </div>
+                <div className="grid w-full items-center gap-1.5">
+                    <Label htmlFor="title" className="mb-4">Funds</Label>
+                    <div className="flex flex-row gap-4 justify-between">
+                        <div className="flex flex-col gap-2">
+                            <Label htmlFor="title">currency</Label>
+                            <Popover open={fOpen} onOpenChange={setFOpen}>
+                                <PopoverTrigger asChild>
+                                <Button
+                                    variant="outline"
+                                    className="w-[300px] justify-between"
+                                    >
+                                    {currency !== " " ? currency : "Select Currency"}
+                                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                </Button>
+                                </PopoverTrigger>
+                                <PopoverContent className="gap-2" align="end">
+                                    {
+                                        currencies.map((currency) => (
+                                            <div
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    setCurrency(currency.symbol)
+                                                    setFOpen(false)
+                                                }}
+                                            >
+                                                {currency.code}
+                                            </div>
+                                        ))
+                                    }
+                                </PopoverContent>
+                            </Popover>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <Label htmlFor="title">goal</Label>
+                            <Input
+                                className="w-full"
+                                required
+                                value={goal}
+                                onChange={(e) => setGoal(parseInt(e.target.value))}
+                                id="title"
+                                type="number"
+                            />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <Label htmlFor="title">raised</Label>
+                            <Input
+                                className="w-full"
+                                required
+                                value={raised}
+                                onChange={(e) => setRaised(parseInt(e.target.value))}
+                                id="title"
+                                type="number"
+                            />
+                        </div>
                     </div>
+                </div>
             </div>
             
         </div>
     );
 };
 
-export default AdminEditPost;
+export default AdminEditProject;

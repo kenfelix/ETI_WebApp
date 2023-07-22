@@ -61,3 +61,46 @@ class UpdatePost(BaseModel):
             self.slug = slugify(self.title)
         if self.timestamp is None:
             self.timestamp = datetime.timestamp(datetime.utcnow())
+
+
+class Project(BaseModel):
+    title: str
+    slug: Optional[str] = None
+    category: str
+    content: Any
+    imageURL: str
+    raised: int
+    goal: int
+    currency: str
+    published: bool = False
+    created_at: Optional[datetime]
+    timestamp: Optional[datetime]
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.slug is None:
+            self.slug = slugify(self.title)
+        if self.created_at is None:
+            self.created_at = datetime.utcnow()
+        if self.timestamp is None:
+            self.timestamp = datetime.timestamp(datetime.utcnow())
+
+
+class UpdateProject(BaseModel):
+    title: str
+    slug: Optional[str] = None
+    category: str
+    content: Any
+    imageURL: str
+    raised: int
+    goal: int
+    currency: str
+    published: bool = False
+    timestamp: Optional[datetime]
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.slug is None:
+            self.slug = slugify(self.title)
+        if self.timestamp is None:
+            self.timestamp = datetime.timestamp(datetime.utcnow())

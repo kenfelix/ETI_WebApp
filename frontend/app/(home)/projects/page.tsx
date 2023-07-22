@@ -5,10 +5,12 @@ import Image from  "next/image"
 import BreadCrumbs from '@/components/sub/breadcrumbs';
 import people from "@/public/people.jpg"
 import DonationNow from '@/components/sub/donate-now';
+import { Project, getProjects } from '@/utils/getData';
 
 interface ProjectPageProps {}
 
-const ProjectPage: FC<ProjectPageProps> = () => {
+const ProjectPage: ({}: ProjectPageProps) => Promise<JSX.Element> = async ({}) => {
+    const projects: Project[] = await getProjects()
     return (
         <div className='flex flex-col justify-center gap-[20px] items-center mb-[100px]'>
             <div className="relative w-full h-[500px]">
@@ -27,8 +29,8 @@ const ProjectPage: FC<ProjectPageProps> = () => {
                 <h5 className='text-[#FC7223] text-[30px] text-center font-semibold mt-[50px]'>LIFE CHANGING PROJECTS</h5>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                {PROJECTS.map((project, index) => (
-                    <ProjectCard key={index} image={project.image} category={project.category} title={project.title} content={project.content} raised={project.raised} goal={project.goal}/>
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project}/>
                 ))}
             </div>
         </div>

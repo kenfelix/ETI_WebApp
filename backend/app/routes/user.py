@@ -3,7 +3,7 @@ from typing import Annotated, List
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 
-from app.crud.crud import (
+from app.crud.user import (
     create_user,
     delete_user,
     get_user_by_email,
