@@ -2,11 +2,13 @@ import AdminHeader from '@/components/sub/admin-header';
 import AdminSpinerCard from '@/components/sub/admin-spinner-card';
 import BarChart from '@/components/sub/bar-chart';
 import DataTable from '@/components/sub/data-table';
-import { FC } from 'react';
+import { Donation } from './donations/page';
+import { getDonations } from '@/utils/getData';
 
 interface AdminDashboardProps {}
 
-const AdminDashboard: FC<AdminDashboardProps> = () => {
+const AdminDashboard: ({}: AdminDashboardProps) => Promise<JSX.Element> = async () =>  {
+    const donations: Donation[] = await getDonations()
     return (
         <div className='flex flex-col w-full p-10 gap-6'>
             <AdminHeader title={'dashboard'}/>
@@ -22,7 +24,7 @@ const AdminDashboard: FC<AdminDashboardProps> = () => {
             </div>
             <div className='w-full h-[500px] flex flex-row items-center gap-4'>
                 <BarChart/>
-                <DataTable/> 
+                <DataTable data={donations.slice(-4).reverse()}/>
             </div>
         </div>
     );

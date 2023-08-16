@@ -19,17 +19,18 @@ const DonationPage: ({}: DonationPageProps) => Promise<JSX.Element> = async () =
                 alt="Image"
                 className="object-cover w-full h-full"
                 />
-                <div className='flex flex-col gap-[50px] text-white absolute top-[150px] md:top-[100px] h-full w-full 
+                <div className='flex flex-col gap-[50px] text-white absolute top-[200px] h-full w-full 
                 justify-center items-center'>
                     <h3 className='font-extrabold shadow-sm text-[50px] leading-[50px] lg:text-[70px]
                      lg:leading-[70px] font-sans text-center'>DONATIONS</h3>
                     <BreadCrumbs/>
-                    <DonateCard className=''/>
+                    <DonateCard className='z-50'/>
                 </div>
             </div>
+            <div className='hidden md:block'>
             {photos.length > 0 ? (<Carousel photos={photos}/>) : null}
-            <CallToAction className='mt-[200px] md:mt-0'/>
-            <div></div>
+            </div>
+            <CallToAction className='mt-[250px] md:mt-0'/>
             <div></div>
         </div>
     );

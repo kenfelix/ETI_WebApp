@@ -293,4 +293,4 @@ export const currencies = [
     // Add more currencies as needed
   ];
 
-export const donationPrices = [10, 25, 50, 60, 75, 100]
+export const donationAmounts = [10, 25, 50, 60, 75, 100]

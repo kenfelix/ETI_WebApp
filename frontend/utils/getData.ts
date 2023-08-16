@@ -113,3 +113,16 @@ export const getPageContent = async(page: string) => {
   return response.data
 }
 
+
+export const getDonations = async() => {
+  let cookie = cookies().get("access_token")
+  const response = await axios.get(`${API_URL}/dynamic/donation/`, {
+      headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${cookie?.value}`
+      },
+      });
+
+  return response.data
+}
+

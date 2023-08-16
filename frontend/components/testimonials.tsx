@@ -17,7 +17,7 @@ const Testimonials: FC<TestimonialsProps> = () => {
                 <h3 className='font-serif font-bold text-[30px] max-w-[400px] text-center'>What People Say About ETI</h3>
                 <div className='flex flex-col md:flex-row gap-4 mt-4'>
                     {TESTIMONIALS.slice(0, 3).map((testimonial, index) => (
-                        <TestimonialCard key={index} content={testimonial.content} name={testimonial.name} type={testimonial.type} src={testimonial.src}/>
+                        <TestimonialCard key={index} content={testimonial.content} name={testimonial.name} src={testimonial.src}/>
                     ))}
                     
                 </div>
@@ -29,14 +29,14 @@ const Testimonials: FC<TestimonialsProps> = () => {
                                     All Testimonial
                             </div>
                         </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px] md:max-w-[850px] bottom-0 md:top-[10%] md:bottom-[10%]">
+                        <DialogContent className="sm:max-w-[425px] md:max-w-[850px] bottom-0 md:bottom-[10%] h-[90%]">
                         <ScrollArea className="p-2 md:p-4 h-[400px] md:h-full w-full rounded-md">
                         <h4 className="mb-4 text-sm font-medium leading-none text-center md:text-left">Testimonials</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 {TESTIMONIALS.map((testimonial, index) => (
                                 <React.Fragment>
                                     <div className="text-sm flex justify-center" key={index}>
-                                        <TestimonialCard key={index} content={testimonial.content} name={testimonial.name} type={testimonial.type} src={testimonial.src}/>
+                                        <TestimonialCard key={index} content={testimonial.content} name={testimonial.name} src={testimonial.src}/>
                                     </div>
                                 </React.Fragment>
                                 ))}

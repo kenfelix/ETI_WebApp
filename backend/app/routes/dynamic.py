@@ -8,14 +8,17 @@ from app.crud.dynamic import (
     update_page_content,
     upload_photo_book,
     get_ImageURLs,
-    delete_image
+    delete_image,
+    create_donation,
+    get_donations
 )
 
-from app.schemas.response import ImageURL
+from app.schemas.response import ImageURL, DonationResponse
 from app.schemas.response import User as userResponse
 from app.serializers.serializer import serializeDict, serializeDictList
 from app.utils.dependecies import get_current_user
 from app.utils.enums import Privilege
+from app.schemas.request import DonationRequest
 
 
 dynamic = APIRouter(tags=["Dynamic Content"])
@@ -98,3 +101,17 @@ async def deletePhoto(
         )
     deleted_image = delete_image(imageURL=imageURL)
     return {}
+
+
+@dynamic.post("/donation/", status_code=status.HTTP_201_CREATED, response_model=DonationResponse)
+async def createDonation(
+    donation: DonationRequest
+):
+    new_donation_Indb = create_donation(donation=donation)
+    return new_donation_Indb
+
+
+@dynamic.get("/donation/", status_code=status.HTTP_200_OK, response_model=List[DonationResponse])
+async def getDonations():
+    donations_Indb = get_donations()
+    return serializeDictList(donations_Indb)

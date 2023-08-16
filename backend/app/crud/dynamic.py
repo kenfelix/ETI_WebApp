@@ -9,6 +9,7 @@ from PIL import Image
 from ..config.config import get_db
 from ..models.users import *
 from ..schemas.response import ImageURL
+from ..schemas.request import DonationRequest
 
 db = get_db()
 
@@ -75,3 +76,13 @@ def delete_image(imageURL: str):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="could not delete photo")
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="could not delete photo")
+    
+
+def create_donation(donation: DonationRequest):
+    donation_id = db.donation.insert_one(dict(donation))
+    new_donation_Indb = db.donation.find_one({"_id": donation_id.inserted_id})
+    return new_donation_Indb
+
+
+def get_donations():
+    return db.donation.find()

@@ -97,3 +97,18 @@ class Deleted(BaseModel):
 
 class ImageURL(BaseModel):
     imageURL: str
+
+
+class DonationResponse(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    tx_ref: str
+    email: EmailStr
+    phone_number: str
+    name: str
+    donor: str
+    amount: str
+
+    class Config:
+        allow_population_by_field_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}

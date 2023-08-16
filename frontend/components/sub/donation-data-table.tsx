@@ -39,35 +39,17 @@ import {
 
 import { FC } from 'react';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog"
-import { deletePost, getCurrentUser} from "@/utils/actions"
+import { deleteProject, getCurrentUser} from "@/utils/actions"
 import { useRouter } from "next/navigation"
 import { useToast } from "../ui/use-toast"
-
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { useForm } from 'react-hook-form';
-import AddPost from "./add-post"
-import { Post } from "@/utils/getData"
+import { Donation } from "@/app/admin/dashboard/donations/page"
 
 
-interface PostDataTableProps {
-    data: Post[]
+interface DonationDataTableProps {
+    data: Donation[]
 }
 
-const FormSchema = z.object({
-  password: z.string().min(8, {
-      message: "Password must be at least 8 characters.",
-  }),
-  confirmPassword: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
-}),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Password doesn't match",
-  path: ["confirmpassword"]
-});
-
-
-export const columns: ColumnDef<Post>[] = [
+export const columns: ColumnDef<Donation>[] = [
     
     {
       id: "select",
@@ -89,67 +71,87 @@ export const columns: ColumnDef<Post>[] = [
       enableHiding: false,
     },
     {
-      accessorKey: "title",
+      accessorKey: "name",
       header: ({ column }) => {
         return (
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Title
+            Name
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         )
       },
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("title")}</div>
+        <div className="capitalize">{row.getValue("name")}</div>
       ),
     },
     {
-      accessorKey: "slug",
+      accessorKey: "email",
       header: ({ column }) => {
         return (
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Slug
+            Email
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         )
       },
-      cell: ({ row }) => <div className="lowercase truncate ... max-w-[200px]">{row.getValue("slug")}</div>,
+      cell: ({ row }) => <div className="lowercase truncate ... max-w-[200px]">{row.getValue("email")}</div>,
     },
     {
-        accessorKey: "published",
+        accessorKey: "phone_number",
         header: ({ column }) => {
           return (
             <Button
               variant="ghost"
               onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             >
-              Published
+              Pnone Number
               <ArrowUpDown className="ml-2 h-4 w-4" />
             </Button>
           )
         },
-        cell: ({ row }) => <div className="ml-[35px]">{(row.getValue("published")) ? 'true' : 'false'}</div>,
+        cell: ({ row }) => <div className="ml-[35px]">{row.getValue("phone_number")}</div>,
       },
-    {
-      accessorKey: "category",
-      header: () => <div className="flex flex-row-reverse">Category</div>,
-      cell: ({ row }) => {
-        const category: boolean = row.getValue("category")
-        return <div className="flex flex-row-reverse">
-            {category}
-        </div>
+      {
+        accessorKey: "donor",
+        header: ({ column }) => {
+          return (
+            <Button
+              variant="ghost"
+              onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+              Type
+              <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+          )
+        },
+        cell: ({ row }) => <div className="ml-[35px]">{row.getValue("donor")}</div>,
       },
-    },
+      {
+        accessorKey: "amount",
+        header: () => <div className="text-right">Amount</div>,
+        cell: ({ row }) => {
+          const amount = parseFloat(row.getValue("amount"))
+    
+          // Format the amount as a dollar amount
+          const formatted = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(amount)
+    
+          return <div className="text-right font-medium">{formatted}</div>
+        },
+      },
     {
       id: "actions",
       enableHiding: false,
       cell: ({ row }) => {
-        const post = row.original
+        const project = row.original
         const router = useRouter()
         const [disable, setDisable] = React.useState(false)
         const { toast } = useToast()
@@ -160,14 +162,7 @@ export const columns: ColumnDef<Post>[] = [
             setDisable(true)
           }
         }
-        const form = useForm<z.infer<typeof FormSchema>>({
-          resolver: zodResolver(FormSchema),
-          defaultValues: {
-          password: "",
-          confirmPassword: "",}
-      })
         return (
-        <AlertDialog>
           <DropdownMenu>
             <DropdownMenuTrigger asChild disabled={disable}>
               <Button variant="ghost" className="h-8 w-8 p-0" onClick={onClick}>
@@ -178,55 +173,25 @@ export const columns: ColumnDef<Post>[] = [
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(post._id)}
+                onClick={() => navigator.clipboard.writeText(project.tx_ref)}
               >
-                Copy post ID
+                Copy Tansaction Ref
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                        <AddPost title={"edit"} id={post._id}/>
-                    </DropdownMenuItem>
-                <DropdownMenuItem className="text-red-600">
-                    <AlertDialogTrigger className="w-full" disabled={disable}>
-                        <Button disabled={ false } variant="outline" className="w-full">Delete</Button>
-                    </AlertDialogTrigger>
+                <DropdownMenuItem
+                onClick={() => navigator.clipboard.writeText(project.email)}
+              >
+                Copy Email
                 </DropdownMenuItem>
                 </DropdownMenuContent>
             
             </DropdownMenu>
-            <AlertDialogContent>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete this post
-                    and remove your data from our servers.
-                    </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction 
-                    onClick={async() => {
-                      deletePost(post._id)
-                      await new Promise((resolve) => setTimeout(resolve, 1000)); 
-                      await new Promise(resolve => {
-                        router.refresh();
-                        resolve(1);
-                      });
-                      toast({
-                        description: "Post deleted succesfully!",
-                        })                   
-                    }}
-                    >Continue
-                    </AlertDialogAction>
-                </AlertDialogFooter>
-            </AlertDialogContent>
-            </AlertDialog>
         )
       },
     },
 ]
 
-const PostDataTable: FC<PostDataTableProps> = ({data}) =>  {
+const DonationDataTable: FC<DonationDataTableProps> = ({data}) =>  {
     const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -262,12 +227,12 @@ const PostDataTable: FC<PostDataTableProps> = ({data}) =>  {
     <div className="w-full flex flex-col h-full shadow-md p-2">
       <div className="flex items-center py-4 ">
         <Input
-          placeholder="Filter titles and categories..."
-          value={(table.getColumn("title")?.getFilterValue() as string) ??
-          (table.getColumn("category")?.getFilterValue() as string)
+          placeholder="Filter name and email..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ??
+          (table.getColumn("email")?.getFilterValue() as string)
           ?? ""}
           onChange={(event) =>
-            table.getColumn("title" && "category")?.setFilterValue(event.target.value)
+            table.getColumn("name" && "email")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -376,4 +341,4 @@ const PostDataTable: FC<PostDataTableProps> = ({data}) =>  {
     );
 };
 
-export default PostDataTable;
+export default DonationDataTable;

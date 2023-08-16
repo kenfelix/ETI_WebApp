@@ -260,7 +260,7 @@ const ProjectDataTable: FC<ProjectDataTableProps> = ({data}) =>  {
     <div className="w-full flex flex-col h-full shadow-md p-2">
       <div className="flex items-center py-4 ">
         <Input
-          placeholder="Filter titles..."
+          placeholder="Filter titles and categories..."
           value={(table.getColumn("title")?.getFilterValue() as string) ??
           (table.getColumn("category")?.getFilterValue() as string)
           ?? ""}

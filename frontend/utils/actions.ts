@@ -387,10 +387,10 @@ export async function updateProject(data: {}, id: string) {
             const post = res.data
             return post
         } else {
-            return `Couldn't created post!`
+            return `Couldn't created project!`
         }
     }catch{
-        return `Post Already exists!`
+        return `Project Already exists!`
     }
 }
 
@@ -528,4 +528,28 @@ export async function deleteProjectPhoto(imageUrl: string) {
         }
       }
     );
+}
+
+
+export async function createDonation(data: {}) {
+  
+    const body = data
+    
+    try{
+        const res = await axios.post(`${API_URL}/dynamic/donation/`, body, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        })
+        
+        if (res.status === 201) {
+            const donation = res.data
+            return donation
+        } else {
+            return `Couldn't created donation!`
+        }
+    }catch{
+        return `Donation Already exists!`
+    }
 }

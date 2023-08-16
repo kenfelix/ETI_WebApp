@@ -41,6 +41,7 @@ const BlogDetailedPage: FC<BlogDetailedPageProps> = () => {
                 }
             ).catch(
                 (error)=>{
+                    console.log(error)
                     router.push("/not-found")
                 }
             )

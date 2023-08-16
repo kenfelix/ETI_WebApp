@@ -1,1 +1,2 @@
 export const API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const FLUTTER_WAVE_PUBLIC_KEY = process.env.NEXT_PUBLIC_FLUTTER_WAVE_PUBLIC_KEY

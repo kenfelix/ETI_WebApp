@@ -54,3 +54,12 @@ class ProjectUpdate(BaseModel):
     goal: Optional[int] = None
     currency: Optional[str] = None
     published: Optional[bool] = None
+
+
+class DonationRequest(BaseModel):
+    tx_ref: str
+    email: EmailStr
+    phone_number: str
+    name: str
+    donor: str
+    amount: str

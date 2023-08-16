@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 
-const MAX_AGE = 60 * 60;
+const MAX_AGE = 60 * 60 * 24;
  
 export async function POST(req: Request, res:Response) {
     
