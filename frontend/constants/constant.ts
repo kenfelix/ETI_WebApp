@@ -186,32 +186,122 @@ export const PROJECTS = [
 export const Q_A = [
     {
         "id": 1,
-        "question": "Lorem ipsum dolor sit amet consectetur adipisicing.",
-        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure?"
+        "question": "What is the main mission of ETI?",
+        "answer": "ETI known as Eternal Treasures Initiative hopes to reach the world with the love of Jesus Christ by ministering to the basic needs of the vulnerable and less privileged in society such as the widowed, children in orphanages, the elderly, homeless, indigent students and the unemployed."
 
     },
     {
         "id": 2,
-        "question": "Lorem ipsum dolor sit amet consectetur adipisicing.",
-        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure?"
+        "question": "What is the long term vision of ETI in terms of impact?",
+        "answer": "To raise generational leaders who will become agents of change capable of volunteering their time and resources to support the initiative and help others in need."
 
     },
     {
         "id": 3,
-        "question": "Lorem ipsum dolor sit amet consectetur adipisicing.",
-        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure?"
+        "question": "How does ETI contribute to charitable causes?",
+        "answer": "ETI contribute to charitable causes through various initiatives such as providing food, money, scholarships, medical assistance, shelter and other resources to those in need."
 
     },
     {
         "id": 4,
-        "question": "Lorem ipsum dolor sit amet consectetur adipisicing.",
-        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure?"
+        "question": "What kind of training does ETI provide and who is it aimed at?",
+        "answer": "ETI provides academic, career and entrepreneurship training and mentorship using a blend of learning methods through the coaching of seasoned professionals who have gained mastery in their various fields. It is aimed at helping students, the unemployed, career personnels and business men and women."
 
     },
     {
         "id": 5,
-        "question": "Lorem ipsum dolor sit amet consectetur adipisicing.",
-        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure?"
+        "question": "How does ETI select beneficiaries for her charitable initiatives?",
+        "answer": "Beneficiaries of our charity initiatives are selected based on a thorough needs assessment conducted by our team to ensure the assistance reaches those who need it most."
+
+    },
+    {
+        "id": 6,
+        "question": "Are there specific criteria for individuals to qualify for ETI charity support?",
+        "answer": "Beneficiaries of our charity support are selected based on specific needs of the underprivileged."
+
+    },
+    {
+        "id": 7,
+        "question": "Are the trainings ETI offer free of charge?",
+        "answer": "Yes, all our trainings are offered free of charge to ensure equal access to everyone."
+
+    },
+    {
+        "id": 8,
+        "question": "Are the trainings conducted by ETI certified?",
+        "answer": "Individuals who participate and successfully complete the training are awarded with a certificate."
+
+    },
+    {
+        "id": 9,
+        "question": "Can you share success stories of your initiatives?",
+        "answer": "As a result of our academic training, students who were performing poorly in their academic work began to perform excellently. Other success stories can be found in the Testimonial section."
+
+    },
+    {
+        "id": 10,
+        "question": "How does ETI fund her activities?",
+        "answer": "We rely on combination of individual donations, corporate partnerships and grants to fund our activities."
+
+    },
+    {
+        "id": 11,
+        "question": "What regions or countries does ETI operate in?",
+        "answer": "Currently, we operate primarily in rural, urban and underserved regions across Nigeria."
+
+    },
+    {
+        "id": 12,
+        "question": "How can businesses sponsor or partner with ETI's initiatives?",
+        "answer": "Businesses can sponsor specific initiatives, collaborate on joint projects, or provide in-kind support to our programs, fostering a mutually beneficial partnership."
+
+    },
+    {
+        "id": 13,
+        "question": "Does ETI collaborate with other organizations to achieve her goals?",
+        "answer": "Yes, we collaborate with other NGOs, local government agencies, international bodies, and corporate partners to leverage resources and maximize the impact of our projects."
+
+    },
+    {
+        "id": 14,
+        "question": "Can local businesses get involved in supporting ETI?",
+        "answer": "Local businesses can support our initiatives through various avenues, including financial contributions, resources, or sponsoring our activities."
+
+    },
+    {
+        "id": 15,
+        "question": "Can people donate specific items or services to ETI's charity projects?",
+        "answer": "Individuals can donate both physical items and money to support our initiatives. Physical donations include clothing, food, and other essentials."
+
+    },
+    {
+        "id": 16,
+        "question": "Are there mentorship opportunities available as part of your training programs?",
+        "answer": "Yes, mentorship is a vital part of our training; participants learn from experienced professionals."
+
+    },
+    {
+        "id": 17,
+        "question": "What steps does ETI take to adapt her program to changing community needs?",
+        "answer": "We conduct regular assessments and maintain open channels of communication with communities to adapt our programs based on their evolving needs."
+
+    },
+    {
+        "id": 18,
+        "question": "How does ETI ensure transparency in the allocation of resources for her different activities?",
+        "answer": "Resources allocation transparency is one of our core principles, therefore we maintain a detailed financial record."
+
+    },
+    {
+        "id": 19,
+        "question": "What role does technology play in enhancing the quality and reach of ETI's training efforts?",
+        "answer": "Technology enables us to conduct virtual training sessions, and maintain efficient communication channels with our beneficiaries and partners."
+
+    },
+    {
+        "id": 20,
+        "question": "How can interested individuals stay updated with latest news and events of ETI's activities?",
+        "answer": "To stay updated, individuals can subscribe to our newsletter, follow our social media accounts, and regularly visit our website for news and updates."
 
     }
 ]
@@ -219,50 +309,50 @@ export const Q_A = [
 export const TESTIMONIALS = [
     {
         "id": 1,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Alex John",
+        "content": "I am a happy beneficiary of the entrepreneurial empowerment of ETI. I have just finished my apprenticeship as a fashion designer and did not have the financial resources to procure a sewing machine. ETI came to my rescue and gave me a sewing machine in one of their programs events. I appreciate the leadership of ETI.",
+        "name":  "Favour Ikechi",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 2,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "James Fisher",
+        "content": "I had no business and no money to start anyone which was a source of serious concern to me. On one of the ETI programs, I was given a sum of money to start a business. Today, I have a food business and I am more productive as a person. May God bless ETI.",
+        "name":  "Roseline Okwuegbunam",
         "type": "Patner",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 3,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Monday cameroon",
+        "content": "I almost lost my admission because my parents didn't have money to pay the fees. Weeks after the matriculation program, I still had not paid the fees and I began to nurse the thoughts of giving up the admission since there was no money at home. However, ETI intervened and paid the fees. ETI is the only reason I am in school today. I will always remain grateful to ETI.",
+        "name":  "Princess Benita Ogbuka",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 4,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Monday cameroon",
+        "content": "I ran a small scale business that could barely stand because I feed my children and pay their school fees from the business. Today, the story has changed and my business is thriving. Thanks to ETI that gave me financial assistance to build my business.",
+        "name":  "Chioma Michael",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 5,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Monday cameroon",
+        "content": "I am grateful to ETI for empowering me with a hair dryer. As a hair stylist, the absence of a hair dryer had cost me a lot of opportunities and I needed it urgently. By the Grace of God, ETI selected me as one of the beneficiaries to receive an equipment in their empowerment scheme. God bless the leadership of ETI.",
+        "name":  "Ogochukwu Nnaji",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 6,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Monday cameroon",
+        "content": "I got an admission to study Human Nutrition and Dietetics in one of the leading tertiary institutions in Nigeria but there was no money to pay my acceptance fee and school fees. My parents did not have the money to pay for the fees and I was at the brink of losing my admission when ETI stepped in and paid both the school fees and acceptance fees. I am an undergraduate today because of ETI. Thank you, ETI, for putting smiles on the faces of humanity.",
+        "name":  "Oluebube Ike",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     },
     {
         "id": 7,
-        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, at ratione dolores nulla blanditiis iure? at ratione dolores nulla blanditiis iure?",
-        "name":  "Monday cameroon",
+        "content": "My clothing and laundry business which has been running for over 5 years was improved tremendously through the entrepreneurial training of the ETI. I got the idea and strategy on how to render my service and having returns in my business from one of the trainings organised by ETI and today, I have a thriving business. Thank you, ETI.",
+        "name":  "Pastor Wisdom Akujuruobi",
         "type": "Volunteer",
         "src": "https://github.com/shadcn.png"
     }

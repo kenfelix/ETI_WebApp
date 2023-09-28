@@ -34,7 +34,7 @@ const Testimonials: FC<TestimonialsProps> = () => {
                         <h4 className="mb-4 text-sm font-medium leading-none text-center md:text-left">Testimonials</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 {TESTIMONIALS.map((testimonial, index) => (
-                                <React.Fragment>
+                                <React.Fragment key={index}>
                                     <div className="text-sm flex justify-center" key={index}>
                                         <TestimonialCard key={index} content={testimonial.content} name={testimonial.name} src={testimonial.src}/>
                                     </div>

@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import manhand from '../public/man-hand.jpg'
 import Image from 'next/image';
-import { Mic2 } from 'lucide-react';
+import { Mic2, UserCog2, HeartHandshakeIcon, HeartPulse } from 'lucide-react';
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 import partner from '../public/partner1.jpg'
@@ -50,17 +50,22 @@ const Intoduction: FC<IntoductionProps> = () => {
                 {/* right */}
 
                 <div className='flex flex-col lg:max-w-xs gap-5'>
-                    <h2 className='font-serif font-extrabold text-[20px] lg:text-[32px]'>How we're making a difference</h2>
+                    <h2 className='font-serif font-extrabold text-[20px] lg:text-[32px]'>How we&apos;re making a difference</h2>
                     <p className='text-[12px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Eveniet vero minima eos natus ipsa assumenda quod voluptate, 
                         amet ducimus consequatur.</p>
-                    <div className='flex w-full items-center gap-3'>
-                        <Mic2 className='w-[20%] flex-grow'/>
-                        <p className='w-[80%] text-[10px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, iste.</p>
+                    <div className='flex w-full items-center gap-2'>
+                        <UserCog2 className='w-[20%] flex-grow'/>
+                        <p className='w-[80%] text-[11px]'>Assisting those in need.</p>
                     </div>
-                    <div className='flex w-full items-center gap-3'>
-                        <Mic2 className='w-[20%] flex-grow'/>
-                        <p className='w-[80%] text-[10px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, iste.</p>
+                    <div className='flex w-full items-center gap-2'>
+                        <HeartPulse className='w-[20%] flex-grow'/>
+                        <p className='w-[80%] text-[11px]'>Supporting community development.</p>
+                    </div>
+                    <div className='flex w-full items-center gap-2'>
+                        <HeartHandshakeIcon className='w-[20%] flex-grow'/>
+                        <p className='w-[80%] text-[11px]'>Fostering academic, career and entrepreneurship opportunities and mentorship 
+                        programmes geared towards raising generational leaders.</p>
                     </div>
                     <p className='text-[11px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Eveniet vero minima eos natus ipsa assumenda quod voluptate, 

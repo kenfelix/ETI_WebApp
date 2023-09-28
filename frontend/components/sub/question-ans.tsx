@@ -11,7 +11,7 @@ interface QuestionAnswerProps {
 const QuestionAnswer: FC<QuestionAnswerProps> = ({question, answer}) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className='flex flex-col gap-2 max-w-full text-[11px]'>
+        <div className='flex flex-col gap-2 max-w-full text-[12px]'>
             {isOpen ? 
             (<p className={`font-bold font-sans cursor-pointer`} onClick={() => (setIsOpen(false))}>- <span>{question}</span></p>)
             :

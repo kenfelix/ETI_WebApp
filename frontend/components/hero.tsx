@@ -20,9 +20,9 @@ const Hero: FC<HeroProps> = () => {
                 alt="Image"
                 className="object-cover w-full h-full"
                 />
-            <div className='flex flex-col gap-5 text-white absolute top-[50px] p-[20px] md:pl-[40px] lg:left-[200px] max-w-[320px] md:max-w-lg'>
+            <div className='flex flex-col gap-5 text-white absolute top-[50px] p-[20px] md:pl-[40px] lg:left-[100px] xl:left-[200px] max-w-[400px] md:max-w-2xl text-left tracking-wider'>
                 <p className='font-bold shadow-sm text-lg'>Eternal Treasures Empowerment Initiative</p>
-                <h3 className='font-extrabold shadow-sm text-[44px] leading-[50px] lg:text-[70px] lg:leading-[70px] font-serif'>Empowering Lives with Eternal Love </h3>
+                <h3 className='font-extrabold shadow-sm text-[44px] leading-[50px] lg:text-[70px] lg:leading-[75px] font-serif'>Giving Hope to Individuals, Families and Communities</h3>
                 <Button onClick={() => {router.push("/donate")}} className='rounded-full px-[20px] py-[25px]
                 bg-orange-500 text-white font-medium max-w-[170px]
                 hover:bg-orange-50 hover:text-orange-600'>
@@ -32,7 +32,7 @@ const Hero: FC<HeroProps> = () => {
                 <Button className='bg-white rounded-full px-3 scale-[1.7]  hover:bg-white'>
                     <PlayIcon className='text-black h-4 w-4'/>
                 </Button>
-                <p className='text-white text-lg'>How we're making a difference</p>
+                <p className='text-white text-lg'>How we&apos;re making a difference</p>
             </div>
         </div>
 

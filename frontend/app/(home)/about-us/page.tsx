@@ -58,15 +58,16 @@ const AboutUsPage: ({}: AboutUsPageProps) => Promise<JSX.Element> = async () => 
                     <Image
                         src={blog}
                         alt="Image"
-                        className="object-cover md:w-[400px] h-[60%]"
+                        className="object-cover md:w-[400px] h-[70%]"
                     />
                     <div className="flex flex-col gap-[20px]">
                         <h3 className='font-sans font-black text-[30px] text-white capitalize'>
-                            SUPPORT OUR GROWING INITIATIVE
+                            PARTNER WITH OUR GROWING INITIATIVE
                         </h3>
                         <p className='font-sans font-normal text-[20px] text-white capitalize mb-4'>
                             Hunger Hurts the World. <br/>
-                            Help us Alleviate Poverty.
+                            Help us Alleviate Poverty. <br/>
+                            Assist us in Building Generational Leaders. <br/>
                         </p>
                         <DonationNow variant={"outline"} className="!bg-[#ff6308] hover:text-white"/>
                     </div>

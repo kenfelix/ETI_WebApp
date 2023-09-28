@@ -10,10 +10,10 @@ interface CallToActionProps extends HtmlHTMLAttributes<HTMLDivElement> {}
 const CallToAction: FC<CallToActionProps> = ({...props}) => {
     return (
         <div {...props}>
-            <div className='flex flex-row gap-[90px] md:pt-[40px] md:pb-[80px] md:mt-[100px] items-center justify-center md:justify-end scale-[.8] md:scale-100'>
+            <div className='flex flex-row gap-[90px] md:pt-[40px] md:pb-[80px] px-5 md:mt-[100px] items-center justify-center md:justify-end scale-[.8] md:scale-100'>
                 <div className='flex flex-col gap-[15px] max-w-[400px]'>
                     <h5 className='text-[#FC7223] text-[10px] font-semibold'>CALL TO ACTION</h5>
-                    <h3 className='font-extrabold font-serif text-[30px]'>Let's Create Something Great Together!</h3>
+                    <h3 className='font-extrabold font-serif text-[30px]'>Let&apos;s Create Something Great Together!</h3>
                     <div className='flex flex-col gap-5 mt-7'>
                         <div className='flex gap-3'>
                             <Input type="text" id="firstname" placeholder="First Name" />

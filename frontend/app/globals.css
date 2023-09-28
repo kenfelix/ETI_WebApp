@@ -1,6 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254,103,17, 0.05) rgba(254,103,17, 0.4);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: .5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(254,103,17, 0.05);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(254,103,17, 0.4);
+  border-radius: 3px;
+}
  
 @layer base {
   :root {

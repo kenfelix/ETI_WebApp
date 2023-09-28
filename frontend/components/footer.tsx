@@ -20,7 +20,7 @@ const Footer: FC<FooterProps> = () => {
         <footer className='relative text-gray-50 flex-wrap bg-[#21202B] flex flex-col items-center py-10'>
             <div className='flex flex-col md:flex-row justify-between gap-5 md:gap-0 bg-[#FE6711] absolute -top-[110px] md:-top-[60px] w-[60%] p-[35px] rounded-sm'>
                 <div className='flex flex-col gap-3 max-w-[400px]'>
-                    <h3 className='text-[16px] font-bold'>Making Greatness Possible In Society</h3>
+                    <h3 className='text-[16px] font-bold'>Impacting Lives Positively</h3>
                     <p className='text-[10px] font-extralight leading-2'>Lorem ipsum dolor sit amet consectetur adipisicing
                     elit. Iusto nesciunt consectetur architecto, sunt alias aliquam?
                     </p>

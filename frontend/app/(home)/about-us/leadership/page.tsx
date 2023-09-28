@@ -31,33 +31,25 @@ const Leadership: ({}: LeadershipProps) => Promise<JSX.Element> = async () =>  {
                     <DonationNow/>
                 </div>
             </div>
-            <div className='flex flex-col items-center justify-center w-full gap-3'>
+            <div className='flex flex-col items-center justify-center w-full gap-3 h-full'>
                 <h5 className='text-[30px] font-thin'>Meet the <span className='font-semibold'>team.</span></h5>
                 <div className='border-[3px] border-double border-[#FC7223] w-[30%]'></div>
-                <div className='grid grid-flow-col items-center w-[80%] justify-center my-[50px] gap-[50px]'>
-                    <div className='w-[200px] h-[200px] flex flex-col items-center gap-2'>
-                        <Avatar className='w-full h-full'>
-                            <AvatarImage src="https://github.com/shadcn.png" />
+                <div className='grid grid-col-1 items-center w-[80%] justify-center my-[50px] gap-[50px]'>
+                    <div className='flex flex-col items-center gap-3'>
+                        <Avatar className='h-[200px]  w-[200px]'>
+                            <AvatarImage src="" />
                             <AvatarFallback>AVT</AvatarFallback>
                         </Avatar>
-                        <p className='text-center text-2xl font-mono font-bold leading-6'>ALEX <br /> OKEDO</p>
-                        <p className='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet?</p>
+                        <p className='text-center text-2xl font-mono font-bold leading-6'>AMB. ALEX <br />OKEDO (Ph.D)</p>
+                        <p className='text-center max-w-lg text-[20px]'>Founder Eternal Treasures Initiative (ETI); a philanthropist driven by an unwavering passion to extend his support to the underprivileged within our society on a daily basis.</p>
                     </div>
-                    <div className='w-[200px] h-[200px] flex flex-col items-center gap-2'>
-                        <Avatar className='w-full h-full'>
-                            <AvatarImage src="https://github.com/shadcn.png" />
+                    <div className='flex flex-col items-center gap-3'>
+                        <Avatar className='h-[200px]  w-[200px]'>
+                            <AvatarImage src="" />
                             <AvatarFallback>AVT</AvatarFallback>
                         </Avatar>
-                        <p className='text-center text-2xl font-mono font-bold leading-6'>ALEX <br /> OKEDO</p>
-                        <p className='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet?</p>
-                    </div>
-                    <div className='w-[200px] h-[200px] flex flex-col items-center gap-2'>
-                        <Avatar className='w-full h-full'>
-                            <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>AVT</AvatarFallback>
-                        </Avatar>
-                        <p className='text-center text-2xl font-mono font-bold leading-6'>ALEX <br /> OKEDO</p>
-                        <p className='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet?</p>
+                        <p className='text-center text-2xl font-mono font-bold leading-6'>DR. IJEOMA N. <br />OKEDO-ALEX</p>
+                        <p className='text-center max-w-lg text-[20px]'>A public health physician, health systems researcher, prolific writer and an international conference speaker who has over 50 internationally published articles in the medical field.</p>
                     </div>
                 </div>
 
